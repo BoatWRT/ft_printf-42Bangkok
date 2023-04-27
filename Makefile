@@ -3,9 +3,9 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SRCS =./sources/ft_printf.c \
-		./sources/ft_numbers.c \
-		./sources/ft_words.c \
+SRCS =./srcs/ft_printf.c \
+		./srcs/ft_numbers.c \
+		./srcs/ft_words.c \
 
 OBJS = $(SRCS:.c=.o)
 
