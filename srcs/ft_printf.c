@@ -35,9 +35,9 @@ size_t	print_type(int c, va_list *args)
 
 
 	else if(c == 'p')
-		len += conversion_p(va_arg(*args, int), 'p');
+		len += conversion_p(va_arg(*args, unsigned long long), 'p');
 
-	else if(c == 'i' || c == 'd')
+	else if(c == 'd' || c == 'i')
 		len += conversion_d(va_arg(*args, int));
 
 
