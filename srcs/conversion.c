@@ -1,6 +1,5 @@
 #include "ft_printf.h"
 #include "libft.h"
-
 //not finished
 size_t conversion_p(unsigned long long c, int f)
 {
@@ -14,13 +13,10 @@ size_t conversion_p(unsigned long long c, int f)
 		ft_putchar_fd('0', 1);
 		len++;
 	}
-	else if (f == 'p')
-		len += ฟังก์ชั่นซักอย่าง1
 	else
-		len += ฟังก์ชั่นซักอย่าง2
+		len += conversion_x(c, f);
 	return (len);
 }
-
 // not finish / sure
 size_t conversion_d(int n)
 {
@@ -36,19 +32,30 @@ size_t conversion_d(int n)
 	return (len);
 }
 
-
-
 size_t conversion_u(unsigned int n)
+{
+	size_t	len;
 
+	len = ft_baselen(n, 10);
+	if (n >= 10)
+	{
+		ft_uitoa(n / 10);
+		ft_uitoa(n % 10);
+	}
+	else
+		ft_putchar(n + '0');
+	return (len);
+}
 
 size_t conversion_x(unsigned long long int, int f)
 {
-	size_t len = 0;
+	size_t	len;
 
+	len = ft_baselen(c, 16);
 	if (c >= 16)
 	{
-		len += conversion_x(c / 16, f);
-		len += conversion_x(c % 16, f);
+		conversion_x(c / 16, f);
+		conversion_x(c % 16, f);
 	}
 	else if (c <= 9)
 		ft_putchar(c + '0');
