@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-//not finished 
+//not finished
 size_t conversion_p(unsigned long long c, int f)
 {
 	size_t	len;
@@ -42,3 +42,22 @@ size_t conversion_u(unsigned int n)
 
 
 size_t conversion_x(unsigned long long int, int f)
+{
+	size_t len = 0;
+
+	if (c >= 16)
+	{
+		len += conversion_x(c / 16, f);
+		len += conversion_x(c % 16, f);
+	}
+	else if (c <= 9)
+		ft_putchar(c + '0');
+	else
+	{
+		if (f == 'x' || f == 'p')
+			ft_putchar(c - 10 + 'a');
+		else
+			ft_putchar(c - 10 + 'A');
+	}
+	return (len);
+}
