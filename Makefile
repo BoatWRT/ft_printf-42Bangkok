@@ -3,8 +3,8 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SRCS =./srcs/ft_printf.c \
-		./srcs/conversion.c \
+SRCS		=	ft_printf.c \
+				conversion.c \
 
 OBJS = $(SRCS:.c=.o)
 
