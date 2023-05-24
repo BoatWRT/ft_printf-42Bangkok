@@ -1,8 +1,10 @@
+NAME = libft.a
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SRCS	=	ft_itoa.c \
+SRCS	=	ft_baselen.c \
+			ft_itoa.c \
 			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_strlen.c \
