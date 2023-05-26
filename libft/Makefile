@@ -6,22 +6,18 @@ BUILD_DIR = ./build
 SRC_DIRS = ./
 INCS_DIR = ./
 
-SRCS	=	ft_baselen.c \
-			ft_itoa.c \
-			ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_strlen.c \
+SRCS = $(addprefix $(SRC_DIRS), ft_baselen.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_strlen.c)
 
-OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
+OBJS = $(SRCS:$(SRC_DIRS)/%.c=$(BUILD_DIR)/%.o)
 
 all: $(BUILD_DIR)/$(NAME)
 
 $(BUILD_DIR)/$(NAME): $(OBJS) $(INCS)
 	ar rcs $(NAME) $(OBJS)
 
-$(BUILD_DIR)/%.c.o: %.c
+$(BUILD_DIR)/%.o: $(SRC_DIRS)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCS_DIR) -c $< -o $@
 
 clean:
 	$(RM) -r $(BUILD_DIR)
