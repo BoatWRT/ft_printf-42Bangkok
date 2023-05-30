@@ -5,12 +5,8 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+# include <string.h>
+# include <stdarg.h>
 
 char	*ft_itoa(int n);
 void	ft_putchar_fd(char c, int fd)
