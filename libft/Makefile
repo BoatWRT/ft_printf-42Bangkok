@@ -3,8 +3,8 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 BUILD_DIR = ./build
-SRC_DIRS = ./
-INCS_DIR = ./
+SRC_DIRS = ./srcs
+INCS_DIR = ./includes
 
 SRCS = $(addprefix $(SRC_DIRS), ft_baselen.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_strlen.c)
 
@@ -17,7 +17,7 @@ $(BUILD_DIR)/$(NAME): $(OBJS) $(INCS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIRS)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I$(INCS_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 
 clean:
 	$(RM) -r $(BUILD_DIR)
