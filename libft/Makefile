@@ -3,8 +3,8 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
 BUILD_DIR = ./build
-SRC_DIRS = ./srcs
-INCS_DIR = ./includes
+SRC_DIRS = ./
+INCS_DIR = ./
 
 SRCS = $(addprefix $(SRC_DIRS), ft_baselen.c ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_strlen.c)
 
