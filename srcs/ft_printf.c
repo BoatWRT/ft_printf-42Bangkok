@@ -8,8 +8,8 @@ int	ft_printf(const char *str, ...)
 	size_t			len;
 
 	len = 0;
-	if (!str)
-		return (NULL);
+	if (str == NULL)
+		return (0);
 	va_start(args, str);
 	while (*str)
 	{
