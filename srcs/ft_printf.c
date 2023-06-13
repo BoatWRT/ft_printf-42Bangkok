@@ -15,11 +15,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			len = len + print_type(*(str + 1), &arg);
+			len = len + print_type(*(str + 1), &args);
 			str++;
 		}
 		else
-			len = len + ft_putchar_fd(*str, 1)
+			len = len + ft_putchar_fd(*str, 1);
 			str++;
 	}
 	va_end(args);
