@@ -22,7 +22,7 @@ $(NAME): $(OBJS) $(LIBFT)
 
 $(OBJS): $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INCS_DIR) -I $(LIBFT_DIR) -c $< -o $@
+	@$(CC) $(CFLAGS) -I $(INCS_DIR) -I $(LIBFT_DIR) -c $< -o $@
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
