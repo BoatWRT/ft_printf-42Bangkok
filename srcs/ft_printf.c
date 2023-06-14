@@ -19,7 +19,7 @@ int	ft_printf(const char *str, ...)
 			str++;
 		}
 		else
-			ft_putchar_fd(*str, 0);
+			ft_putchar_fd(*str, 1);
 		str++;
 	}
 	va_end(args);
