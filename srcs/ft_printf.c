@@ -15,12 +15,12 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			len = len + print_type(*(str + 1), &args);
+			print_type(*(str + 1), &args);
 			str++;
 		}
 		else
-			len = len + ft_putchar_fd(*str, 1);
-			str++;
+			ft_putchar_fd(*str, 0);
+		str++;
 	}
 	va_end(args);
 	return (len);
@@ -28,26 +28,25 @@ int	ft_printf(const char *str, ...)
 
 size_t	print_type(int c, va_list *args)
 {
+	size_t	len;
+
+	len = 0;
 	if (c == 'c')
-		len += ft_putchar_fd(va_arg(*args, int), 1);
+		ft_putchar_fd(va_arg(*args, int), 1);
 	else if(c == 's')
-		len += ft_putstr_fd(va_arg(*args, char *), 1);
-
-
+		ft_putstr_fd(va_arg(*args, char *), 1);
 	else if(c == 'p')
-		len += conversion_p(va_arg(*args, unsigned long long), 'p');
-
+		conversion_p(va_arg(*args, unsigned long long), 'p');
 	else if(c == 'd' || c == 'i')
-		len += conversion_d(va_arg(*args, int));
-
-
+		conversion_d(va_arg(*args, int));
 	else if(c == 'u')
-		len += conversion_u(va_arg(*args, unsigned int));
+		conversion_u(va_arg(*args, unsigned int));
 	else if(c == 'x')
-		len += conversion_x(va_arg(*args, unsigned long), 'x');
+		conversion_x(va_arg(*args, unsigned long), 'x');
 	else if(c == 'X')
-		len += conversion_x(va_arg(*args, unsigned long), 'X');
+		conversion_x(va_arg(*args, unsigned long), 'X');
 	else
-	len += ft_putchar_fd('%', 1);
+		ft_putchar_fd('%', 1);
+	len++;
 	return (len);
 }
