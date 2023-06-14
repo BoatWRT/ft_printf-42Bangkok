@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 #include "libft.h"
-//not finished
+
 size_t conversion_p(unsigned long long c, int f)
 {
 	size_t	len;
@@ -17,7 +17,7 @@ size_t conversion_p(unsigned long long c, int f)
 		len += conversion_x(c, f);
 	return (len);
 }
-// not finish / sure
+
 size_t conversion_d(int n)
 {
 	size_t		len;
