@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.
-#Still need some revised
+
 INCS_DIR	= ./includes
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
