@@ -49,10 +49,7 @@ size_t	print_type(int c, va_list *args)
 	if (c == 'c')
 		len += ft_putchar(va_arg(*args, int));
 	else if (c == 's')
-	{
-		ft_putstr_fd(va_arg(*args, char *), 1);
-		len++;
-	}
+		len += ft_putstr(va_arg(*args, char *));
 	else if (c == 'p')
 		len += conversion_p(va_arg(*args, unsigned long long), 'p');
 	else if (c == 'd' || c == 'i')

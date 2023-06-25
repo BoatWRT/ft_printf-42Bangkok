@@ -23,7 +23,7 @@
 
 char	*ft_itoa(int n);
 int		ft_putchar(int c);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr(char *s);
 size_t	ft_strlen(const char *s);
 size_t	ft_baselen(size_t n, int base);
 

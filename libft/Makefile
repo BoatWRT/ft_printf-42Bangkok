@@ -9,7 +9,7 @@ INCS_DIR = ./
 SRCS = ft_baselen.c \
 			 		ft_itoa.c\
 					ft_putchar.c\
-					ft_putstr_fd.c\
+					ft_putstr.c\
 					ft_strlen.c
 
 OBJS = $(SRCS:%=$(BUILD_DIR)/%.o)
