@@ -21,10 +21,7 @@ size_t	conversion_p(unsigned long long c, int f)
 	if (f == 'p')
 		len += write(1, "0x", 2);
 	if (c == '0')
-	{
-		ft_putchar('0');
-		len++;
-	}
+		len += ft_putchar('0');
 	else
 		len += conversion_x(c, f);
 	return (len);
@@ -51,8 +48,8 @@ size_t	conversion_u(unsigned int n)
 	len = 0;
 	if (n >= 10)
 	{
-		conversion_u(n / 10);
-		conversion_u(n % 10);
+		len += conversion_u(n / 10);
+		len += conversion_u(n % 10);
 	}
 	else
 	{
@@ -69,8 +66,8 @@ size_t	conversion_x(unsigned long long c, int f)
 	len = 0;
 	if (c >= 16)
 	{
-		conversion_x(c / 16, f);
-		conversion_x(c % 16, f);
+		len += conversion_x(c / 16, f);
+		len += conversion_x(c % 16, f);
 	}
 	else if (c <= 9)
 		len += ft_putchar(c + '0');

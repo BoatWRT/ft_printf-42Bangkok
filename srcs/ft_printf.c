@@ -31,10 +31,7 @@ int	ft_printf(const char *str, ...)
 			str++;
 		}
 		else
-		{
-			ft_putchar(*str);
-			len++;
-		}
+			len += ft_putchar(*str);
 		str++;
 	}
 	va_end(args);
