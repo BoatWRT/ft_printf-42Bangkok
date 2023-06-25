@@ -31,7 +31,7 @@ int	ft_printf(const char *str, ...)
 			str++;
 		}
 		else
-			ft_putchar_fd(*str, 1);
+			ft_putchar(*str);
 		str++;
 	}
 	va_end(args);
@@ -44,21 +44,21 @@ size_t	print_type(int c, va_list *args)
 
 	len = 0;
 	if (c == 'c')
-		ft_putchar_fd(va_arg(*args, int), 1);
+		len += ft_putchar(va_arg(*args, int));
 	else if (c == 's')
+	{
 		ft_putstr_fd(va_arg(*args, char *), 1);
+		len++;
+	}
 	else if (c == 'p')
-		conversion_p(va_arg(*args, unsigned long long), 'p');
+		len += conversion_p(va_arg(*args, unsigned long long), 'p');
 	else if (c == 'd' || c == 'i')
-		conversion_d(va_arg(*args, int));
+		len += conversion_d(va_arg(*args, int));
 	else if (c == 'u')
-		conversion_u(va_arg(*args, unsigned int));
-	else if (c == 'x')
-		conversion_x(va_arg(*args, unsigned long), 'x');
-	else if (c == 'X')
-		conversion_x(va_arg(*args, unsigned long), 'X');
+		len += conversion_u(va_arg(*args, unsigned int));
+	else if (c == 'x' || c == 'X')
+		len += conversion_x(va_arg(*args, unsigned long), c);
 	else
-		ft_putchar_fd('%', 1);
-	len++;
+		len += ft_putchar('%');
 	return (len);
 }

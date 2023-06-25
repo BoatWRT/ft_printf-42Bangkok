@@ -8,7 +8,7 @@ INCS_DIR = ./
 
 SRCS = ft_baselen.c \
 			 		ft_itoa.c\
-					ft_putchar_fd.c\
+					ft_putchar.c\
 					ft_putstr_fd.c\
 					ft_strlen.c
 
@@ -19,7 +19,7 @@ all: $(BUILD_DIR)/$(NAME)
 $(BUILD_DIR)/$(NAME): $(OBJS) $(INCS)
 	ar rcs $(NAME) $(OBJS)
 
-$(BUILD_DIR)/%.c.o: %.c	
+$(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCS_DIR) -c $< -o $@
 

@@ -22,7 +22,7 @@ size_t	conversion_p(unsigned long long c, int f)
 		len += write(1, "0x", 2);
 	if (c == '0')
 	{
-		ft_putchar_fd('0', 1);
+		ft_putchar('0');
 		len++;
 	}
 	else
@@ -55,7 +55,7 @@ size_t	conversion_u(unsigned int n)
 		conversion_u(n % 10);
 	}
 	else
-		ft_putchar_fd(n + '0', 1);
+		ft_putchar(n + '0');
 	return (len);
 }
 
@@ -70,13 +70,13 @@ size_t	conversion_x(unsigned long long c, int f)
 		conversion_x(c % 16, f);
 	}
 	else if (c <= 9)
-		ft_putchar_fd(c + '0', 1);
+		ft_putchar(c + '0');
 	else
 	{
 		if (f == 'x' || f == 'p')
-			ft_putchar_fd(c - 10 + 'a', 1);
+			ft_putchar(c - 10 + 'a');
 		else
-			ft_putchar_fd(c - 10 + 'A', 1);
+			ft_putchar(c - 10 + 'A');
 	}
 	return (len);
 }
