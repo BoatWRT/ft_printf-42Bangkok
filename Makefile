@@ -17,7 +17,7 @@ OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@ar rcs $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 	@echo "Finised linking $@"
 
 $(OBJS): $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c

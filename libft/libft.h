@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+# include <stddef.h>
 
 char	*ft_itoa(int n);
 void	ft_putchar_fd(char c, int fd);
