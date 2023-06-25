@@ -27,11 +27,14 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			print_type(*(str + 1), &args);
+			len += print_type(*(str + 1), &args);
 			str++;
 		}
 		else
+		{
 			ft_putchar(*str);
+			len++;
+		}
 		str++;
 	}
 	va_end(args);
