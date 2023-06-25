@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wtangcha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/25 11:23:50 by wtangcha          #+#    #+#             */
+/*   Updated: 2023/06/25 11:23:52 by wtangcha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "libft.h"
 #include <stdarg.h>
@@ -5,7 +17,7 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list		args;
-	size_t			len;
+	size_t		len;
 
 	len = 0;
 	if (str == NULL)
@@ -33,17 +45,17 @@ size_t	print_type(int c, va_list *args)
 	len = 0;
 	if (c == 'c')
 		ft_putchar_fd(va_arg(*args, int), 1);
-	else if(c == 's')
+	else if (c == 's')
 		ft_putstr_fd(va_arg(*args, char *), 1);
-	else if(c == 'p')
+	else if (c == 'p')
 		conversion_p(va_arg(*args, unsigned long long), 'p');
-	else if(c == 'd' || c == 'i')
+	else if (c == 'd' || c == 'i')
 		conversion_d(va_arg(*args, int));
-	else if(c == 'u')
+	else if (c == 'u')
 		conversion_u(va_arg(*args, unsigned int));
-	else if(c == 'x')
+	else if (c == 'x')
 		conversion_x(va_arg(*args, unsigned long), 'x');
-	else if(c == 'X')
+	else if (c == 'X')
 		conversion_x(va_arg(*args, unsigned long), 'X');
 	else
 		ft_putchar_fd('%', 1);
