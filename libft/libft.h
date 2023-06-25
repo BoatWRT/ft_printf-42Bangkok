@@ -22,7 +22,7 @@
 # include <stddef.h>
 
 char	*ft_itoa(int n);
-int		ft_putchar(int c);
+int		ft_putchar(char c);
 int		ft_putstr(char *s);
 size_t	ft_strlen(const char *s);
 size_t	ft_baselen(size_t n, int base);
