@@ -45,7 +45,7 @@ size_t	conversion_u(unsigned int n)
 {
 	size_t	len;
 
-	len = 0;
+	len = ft_baselen(c, 10);
 	if (n >= 10)
 	{
 		len += conversion_u(n / 10);
@@ -63,7 +63,7 @@ size_t	conversion_x(unsigned long long c, int f)
 {
 	size_t	len;
 
-	len = 0;
+	len = ft_baselen(c, 16);
 	if (c >= 16)
 	{
 		len += conversion_x(c / 16, f);
