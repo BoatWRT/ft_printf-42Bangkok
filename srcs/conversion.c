@@ -59,7 +59,7 @@ size_t	conversion_u(unsigned int n)
 	return (len);
 }
 
-size_t	conversion_x(unsigned long long c, int f)
+size_t	conversion_x(unsigned long long c, char f)
 {
 	size_t	len;
 

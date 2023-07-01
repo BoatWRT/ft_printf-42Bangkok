@@ -38,7 +38,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-size_t	print_type(int c, va_list *args)
+size_t	print_type(char c, va_list *args)
 {
 	size_t	len;
 
