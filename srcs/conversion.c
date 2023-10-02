@@ -20,8 +20,11 @@ size_t	conversion_p(unsigned long long c, int f)
 	len = 0;
 	if (f == 'p')
 		len += write(1, "0x", 2);
-	if (c == '0')
+	if (c == 0)
+	{
 		ft_putchar('0');
+		len++;
+	}
 	else
 		len += conversion_x(c, f);
 	return (len);
@@ -72,7 +75,7 @@ size_t	conversion_x(unsigned long long c, char f)
 	{
 		if (f == 'x' || f == 'p')
 			ft_putchar(c - 10 + 'a');
-		else
+		else if (f == 'X')
 			ft_putchar(c - 10 + 'A');
 	}
 	return (len);
