@@ -20,9 +20,10 @@
 
 int		ft_printf(const char *str, ...);
 size_t	print_type(char c, va_list *args);
-size_t	conversion_p(unsigned long long c, int f);
+size_t	conversion_hex(unsigned long c, int f);
 size_t	conversion_d(int n);
 size_t	conversion_u(unsigned int n);
-size_t	conversion_x(unsigned long long c, char f);
+size_t	conversion_x(unsigned long long c, int f);
+size_t	conversion_upx(unsigned int c, int f);
 
 #endif

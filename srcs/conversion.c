@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-size_t	conversion_p(unsigned long long c, int f)
+size_t	conversion_hex(unsigned long c, int f)
 {
 	size_t	len;
 
@@ -25,8 +25,10 @@ size_t	conversion_p(unsigned long long c, int f)
 		ft_putchar('0');
 		len++;
 	}
-	else
+	else if (f == 'p')
 		len += conversion_x(c, f);
+	else
+		len += conversion_upx(c, f);
 	return (len);
 }
 
@@ -59,7 +61,7 @@ size_t	conversion_u(unsigned int n)
 	return (len);
 }
 
-size_t	conversion_x(unsigned long long c, char f)
+size_t	conversion_x(unsigned long long c, int f)
 {
 	size_t	len;
 
@@ -75,8 +77,31 @@ size_t	conversion_x(unsigned long long c, char f)
 	{
 		if (f == 'x' || f == 'p')
 			ft_putchar(c - 10 + 'a');
-		else if (f == 'X')
+		else
 			ft_putchar(c - 10 + 'A');
 	}
 	return (len);
 }
+
+size_t	conversion_upx(unsigned int c, int f)
+{
+	size_t	len;
+
+	len = ft_baselen(c, 16);
+	if (c >= 16)
+	{
+		conversion_upx(c / 16, f);
+		conversion_upx(c % 16, f);
+	}
+	else if (c <= 9)
+		ft_putchar(c + '0');
+	else
+	{
+		if (f == 'x' || f == 'p')
+			ft_putchar(c - 10 + 'a');
+		else
+			ft_putchar(c - 10 + 'A');
+	}
+	return (len);
+}
+

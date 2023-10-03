@@ -48,13 +48,15 @@ size_t	print_type(char c, va_list *args)
 	else if (c == 's')
 		len += ft_putstr(va_arg(*args, char *));
 	else if (c == 'p')
-		len += conversion_p(va_arg(*args, unsigned long long), 'p');
+		len += conversion_hex(va_arg(*args, unsigned long), c);
 	else if (c == 'd' || c == 'i')
 		len += conversion_d(va_arg(*args, int));
 	else if (c == 'u')
 		len += conversion_u(va_arg(*args, unsigned int));
-	else if (c == 'x' || c == 'X')
-		len += conversion_x(va_arg(*args, unsigned long), c);
+	else if (c == 'x')
+		len += conversion_hex(va_arg(*args, unsigned long), c);
+	else if (c == 'X')
+		len += conversion_hex(va_arg(*args, unsigned long), c);
 	else
 		len += ft_putchar('%');
 	return (len);
