@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversion.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wtangcha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: <wtangcha> <wtangcha@student.42bangkok.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 11:23:39 by wtangcha          #+#    #+#             */
-/*   Updated: 2023/06/25 11:23:43 by wtangcha         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:06:25 by <wtangcha>       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,3 @@ size_t	conversion_upx(unsigned int c, int f)
 	}
 	return (len);
 }
-
